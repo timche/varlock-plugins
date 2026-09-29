@@ -17,9 +17,6 @@ importers:
       '@timche/varlock-require-all-or-none':
         specifier: workspace:*
         version: link:packages/varlock-require-all-or-none
-      '@timche/varlock-skip-if-no-auth':
-        specifier: workspace:*
-        version: link:packages/varlock-skip-if-no-auth
       '@types/node':
         specifier: ^24
         version: 24.19.0
@@ -34,12 +31,6 @@ importers:
         version: 1.0.0(@types/node@24.19.0)(@vitest/ui@5.0.1)(yaml@2.9.1)
 
   packages/varlock-require-all-or-none:
-    dependencies:
-      varlock:
-        specifier: ^1.21.0
-        version: 1.21.0
-
-  packages/varlock-skip-if-no-auth:
     dependencies:
       varlock:
         specifier: ^1.21.0
