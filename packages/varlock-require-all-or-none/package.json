@@ -1,6 +1,6 @@
 {
   "name": "@timche/varlock-require-all-or-none",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Varlock plugin adding @requireAllOrNone, which fails the load when only some items of a group are set",
   "keywords": [
     "dotenv",
