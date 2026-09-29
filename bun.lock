@@ -5,12 +5,20 @@
     "": {
       "name": "varlock-plugins",
       "devDependencies": {
+        "@timche/varlock-require-all-or-none": "workspace:*",
         "@timche/varlock-skip-if-no-auth": "workspace:*",
         "@types/bun": "^1.4.2",
         "@varlock/1password-plugin": "^2.0.4",
         "tsdown": "^0.23.0",
         "typescript": "^7.0.2",
         "varlock": "1.21.1",
+      },
+    },
+    "packages/varlock-require-all-or-none": {
+      "name": "@timche/varlock-require-all-or-none",
+      "version": "0.1.0",
+      "peerDependencies": {
+        "varlock": "^1.21.0",
       },
     },
     "packages/varlock-skip-if-no-auth": {
@@ -57,6 +65,8 @@
     "@rolldown/binding-win32-x64-msvc": ["@rolldown/binding-win32-x64-msvc@1.2.11", "", { "os": "win32", "cpu": "x64" }, "sha512-/PzKqzAJ03i19oy2ItPvyvaVjOjBCNnfaJs8yvUdGBKmiESgnrJSQ2awd81QzFbbnAmu7YO9ZnJrDCb9VSJPRA=="],
 
     "@rolldown/pluginutils": ["@rolldown/pluginutils@1.0.1", "", {}, "sha512-2j9bGt5Jh8hj+vPtgzPtl72j0yRxHAyumoo6TNfAjsLB04UtpSvPbPcDcBMxz7n+9CYB0c1GxQFxYRg2jimqGw=="],
+
+    "@timche/varlock-require-all-or-none": ["@timche/varlock-require-all-or-none@workspace:packages/varlock-require-all-or-none"],
 
     "@timche/varlock-skip-if-no-auth": ["@timche/varlock-skip-if-no-auth@workspace:packages/varlock-skip-if-no-auth"],
 
