@@ -1,12 +1,13 @@
-import { chmodSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
-import { tmpdir } from 'node:os';
-import path from 'node:path';
+import { chmodSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import path from "node:path";
 
-export const VALID_TOKEN = 'ops_valid-test-token';
+export const VALID_TOKEN = "ops_valid-test-token";
 
 // Messages are copied from the real `op` 2.x CLI, since the plugin under test tells
 // "no credentials" apart from other failures by what `op` prints.
-export const DESKTOP_APP_UNAVAILABLE = "error initializing client: connecting to desktop app: 1Password CLI couldn't connect to the 1Password desktop app.";
+export const DESKTOP_APP_UNAVAILABLE =
+  "error initializing client: connecting to desktop app: 1Password CLI couldn't connect to the 1Password desktop app.";
 
 const script = (secrets: Record<string, string>, noAuthMessage: string) => `
 const fs = require('node:fs');
@@ -33,13 +34,16 @@ process.stdout.write(output + '\\n');
  * Creates a directory holding a fake `op` executable, to put on PATH. Without a token it
  * fails with `noAuthMessage`, the way `op` does when desktop app auth is unavailable.
  */
-export function createFakeOp(secrets: Record<string, string>, noAuthMessage = DESKTOP_APP_UNAVAILABLE) {
-  const dir = mkdtempSync(path.join(tmpdir(), 'fake-op-'));
-  const scriptPath = path.join(dir, 'fake-op.cjs');
+export function createFakeOp(
+  secrets: Record<string, string>,
+  noAuthMessage = DESKTOP_APP_UNAVAILABLE,
+) {
+  const dir = mkdtempSync(path.join(tmpdir(), "fake-op-"));
+  const scriptPath = path.join(dir, "fake-op.cjs");
   writeFileSync(scriptPath, script(secrets, noAuthMessage));
-  const opPath = path.join(dir, 'op');
+  const opPath = path.join(dir, "op");
   writeFileSync(opPath, `#!/bin/sh\nexec "${process.execPath}" "${scriptPath}" "$@"\n`);
   chmodSync(opPath, 0o755);
-  process.on('exit', () => rmSync(dir, { recursive: true, force: true }));
+  process.on("exit", () => rmSync(dir, { recursive: true, force: true }));
   return dir;
 }
