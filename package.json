@@ -14,7 +14,6 @@
     "@changesets/cli": "^3.0.3",
     "@timche/oxc-configs": "^2.0.0",
     "@timche/varlock-require-all-or-none": "workspace:*",
-    "@timche/varlock-skip-if-no-auth": "workspace:*",
     "@types/node": "^24",
     "@varlock/1password-plugin": "^2.0.4",
     "varlock": "^1.21.0",
