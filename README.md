@@ -7,6 +7,12 @@ Small [varlock](https://varlock.dev) plugins, each published to npm as its own p
 | [`@timche/varlock-skip-if-no-auth`](packages/varlock-skip-if-no-auth) | `skipIfNoAuth()`: a secret resolves to `undefined` when its provider has no credentials, instead of failing the load |
 | [`@timche/varlock-require-all-or-none`](packages/varlock-require-all-or-none) | `@requireAllOrNone`: fails the load when only some items of a group are set |
 
+Varlock finds an installed plugin by walking up `node_modules` from the schema file, so install it as a dev dependency next to `varlock`. With the standalone binary and no `package.json`, pin an exact version instead, e.g. `@plugin(@timche/varlock-require-all-or-none@0.1.0)`.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## License
 
 MIT
