@@ -6,7 +6,7 @@ Needs [Bun](https://bun.sh) and Node.js 22 or later; the tests run the varlock C
 
 ```sh
 bun install
-bun run typecheck
+bun run check     # format, lint and type checks through Vite+; `bun run fix` applies fixes
 bun run test      # builds every package, then runs bun test
 ```
 
@@ -22,6 +22,6 @@ To add a plugin, copy an existing package, rename it, and add it to the root `de
 
 ## Changes
 
-Run `bun run typecheck` and `bun run test` before opening a pull request; CI runs the same on every push and pull request.
+Run `bun run check` and `bun run test` before opening a pull request; CI runs the same on every push and pull request.
 
 A pull request that changes what a package publishes also needs a changeset, see [RELEASING.md](RELEASING.md).
