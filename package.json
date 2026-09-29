@@ -9,6 +9,7 @@
     "build": "bun run --filter '@timche/*' build",
     "check": "vp check",
     "fix": "vp check --fix",
+    "prepare": "vp config --no-agent",
     "release": "bun run build && changeset publish",
     "test": "bun run build && bun test"
   },
