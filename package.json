@@ -1,18 +1,19 @@
 {
   "name": "varlock-plugins",
   "private": true,
-  "type": "module",
   "workspaces": [
     "packages/*"
   ],
+  "type": "module",
   "scripts": {
     "build": "bun run --filter '@timche/*' build",
-    "typecheck": "tsc -p .",
+    "release": "bun run build && changeset publish",
     "test": "bun run build && bun test",
-    "release": "bun run build && changeset publish"
+    "typecheck": "tsc -p ."
   },
   "devDependencies": {
     "@changesets/cli": "^3.0.3",
+    "@timche/oxc-configs": "^2.0.0",
     "@timche/varlock-require-all-or-none": "workspace:*",
     "@timche/varlock-skip-if-no-auth": "workspace:*",
     "@types/bun": "^1.4.2",

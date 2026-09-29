@@ -3,42 +3,42 @@
   "version": "0.1.0",
   "description": "Varlock plugin adding @requireAllOrNone, which fails the load when only some items of a group are set",
   "keywords": [
-    "varlock",
-    "varlock-plugin",
-    "plugin",
-    "validation",
-    "required",
-    "group",
-    "env",
     "dotenv",
-    "environment variables"
+    "env",
+    "environment variables",
+    "group",
+    "plugin",
+    "required",
+    "validation",
+    "varlock",
+    "varlock-plugin"
   ],
   "homepage": "https://github.com/timche/varlock-plugins/tree/main/packages/varlock-require-all-or-none#readme",
   "bugs": "https://github.com/timche/varlock-plugins/issues",
+  "license": "MIT",
+  "author": "Tim Cheung",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/timche/varlock-plugins.git",
     "directory": "packages/varlock-require-all-or-none"
   },
-  "license": "MIT",
-  "author": "Tim Cheung",
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "exports": {
     "./plugin": "./dist/plugin.cjs"
   },
-  "files": [
-    "dist"
-  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "vp pack"
-  },
-  "engines": {
-    "node": ">=22"
   },
   "peerDependencies": {
     "varlock": "^1.21.0"
   },
-  "publishConfig": {
-    "access": "public"
+  "engines": {
+    "node": ">=22"
   }
 }

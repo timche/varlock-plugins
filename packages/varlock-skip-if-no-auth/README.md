@@ -38,13 +38,13 @@ It also works inside other functions, e.g. `if($SIGN, skipIfNoAuth(op("op://Vaul
 
 Only failures that mean no credentials are available at all are skipped. Everything else still fails the load, so a real problem is never hidden:
 
-| Situation | Result |
-| --- | --- |
-| No token, and desktop app auth is off | `undefined` |
+| Situation                                                                                                    | Result      |
+| ------------------------------------------------------------------------------------------------------------ | ----------- |
+| No token, and desktop app auth is off                                                                        | `undefined` |
 | Desktop app auth is on, but there is no `op` CLI, no desktop app, or its integration is off or was dismissed | `undefined` |
-| A token that is rejected | error |
-| An item, field or vault that does not exist | error |
-| Any other error | error |
+| A token that is rejected                                                                                     | error       |
+| An item, field or vault that does not exist                                                                  | error       |
+| Any other error                                                                                              | error       |
 
 `skipIfNoAuth()` accepts any expression, but currently recognizes only the errors of [`@varlock/1password-plugin`](https://www.npmjs.com/package/@varlock/1password-plugin). Errors from other providers pass through unchanged.
 
