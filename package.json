@@ -1,0 +1,20 @@
+{
+  "name": "varlock-plugins",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "bun run --filter '@timche/*' build",
+    "typecheck": "tsc -p .",
+    "test": "bun run build && bun test"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.2",
+    "tsdown": "^0.23.0",
+    "typescript": "^7.0.2",
+    "varlock": "1.21.1"
+  },
+  "packageManager": "bun@1.4.2"
+}
