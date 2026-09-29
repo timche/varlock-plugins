@@ -12,6 +12,9 @@ export default defineConfig({
     ignorePatterns: ["**/dist/**"],
     options: { ...oxlintConfig.options, typeCheck: true },
   },
+  test: {
+    include: ["packages/*/test/**/*.test.ts"],
+  },
   staged: {
     "*": "vp check --fix",
   },

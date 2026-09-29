@@ -7,7 +7,7 @@
     "noUncheckedIndexedAccess": true,
     "noEmit": true,
     "skipLibCheck": true,
-    "types": ["bun"]
+    "types": ["node"]
   },
   "include": ["*.ts", "packages/*/src", "packages/*/test", "packages/*/vite.config.ts", "test"]
 }

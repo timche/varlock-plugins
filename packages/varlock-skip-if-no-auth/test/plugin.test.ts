@@ -1,9 +1,9 @@
-import { describe, expect, test } from "bun:test";
 import path from "node:path";
+import { describe, expect, test } from "vite-plus/test";
 import { createFakeOp, DESKTOP_APP_UNAVAILABLE, VALID_TOKEN } from "../../../test/fake-op";
 import { loadSchema } from "../../../test/varlock";
 
-const fixture = (name: string) => path.join(import.meta.dir, "fixtures", name);
+const fixture = (name: string) => path.join(import.meta.dirname, "fixtures", name);
 
 const API_KEY = "acme-api-key-0123456789";
 const SIGNING_KEY = "signing-key-0123456789";
