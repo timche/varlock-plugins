@@ -27,7 +27,7 @@ importers:
         specifier: ^2.0.4
         version: 2.0.4(varlock@1.21.0)
       varlock:
-        specifier: 1.21.0
+        specifier: ^1.21.0
         version: 1.21.0
       vite-plus:
         specifier: ^1.0.0
