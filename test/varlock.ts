@@ -5,8 +5,23 @@ import path from "node:path";
 
 const VARLOCK_CLI = path.join(import.meta.dir, "..", "node_modules", "varlock", "bin", "cli.js");
 // the CLI switches to Bun when it detects a Bun parent, so it is started with Node explicitly
-const NODE = Bun.which("node");
-if (!NODE) throw new Error("node must be on PATH to run varlock");
+const NODE = findNode();
+
+function findNode() {
+  const node = Bun.which("node");
+  if (!node) {
+    throw new Error("node must be on PATH to run varlock");
+  }
+  return node;
+}
+
+function parseValues(stdout: string): Record<string, unknown> {
+  const parsed: unknown = JSON.parse(stdout);
+  if (typeof parsed !== "object" || parsed === null) {
+    throw new Error(`expected a JSON object, got ${stdout}`);
+  }
+  return Object.fromEntries(Object.entries(parsed));
+}
 
 export type LoadResult = {
   ok: boolean;
@@ -19,7 +34,7 @@ export function loadSchema(
   opts: { env?: Record<string, string>; path?: string; format?: "json" | "pretty" } = {},
 ): LoadResult {
   const home = mkdtempSync(path.join(tmpdir(), "varlock-home-"));
-  const result = spawnSync(NODE!, [VARLOCK_CLI, "load", "--format", opts.format ?? "json"], {
+  const result = spawnSync(NODE, [VARLOCK_CLI, "load", "--format", opts.format ?? "json"], {
     cwd: fixtureDir,
     encoding: "utf8",
     env: {
@@ -36,7 +51,7 @@ export function loadSchema(
   const ok = result.status === 0;
   return {
     ok,
-    values: ok && opts.format !== "pretty" ? JSON.parse(result.stdout) : {},
+    values: ok && opts.format !== "pretty" ? parseValues(result.stdout) : {},
     output: `${result.stdout}\n${result.stderr}`,
   };
 }

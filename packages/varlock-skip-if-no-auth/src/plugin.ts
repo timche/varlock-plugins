@@ -35,19 +35,25 @@ plugin.registerResolverFunction({
     arrayExactLength: 1,
   },
   process() {
-    return this.arrArgs![0];
+    const [inner] = this.arrArgs ?? [];
+    if (!inner) {
+      throw new SchemaError("expects exactly 1 argument");
+    }
+    return inner;
   },
   async resolve(inner: Resolver) {
     try {
       return await inner.resolve();
-    } catch (err) {
-      const provider = findNoAuthProvider(err);
-      if (!provider) throw err;
-      const reason = err instanceof Error ? err.message : String(err);
+    } catch (error) {
+      const provider = findNoAuthProvider(error);
+      if (!provider) {
+        throw error;
+      }
+      const reason = error instanceof Error ? error.message : String(error);
       const message = `skipped, ${provider} is not authenticated: ${reason}`;
       // a value can be resolved more than once in a load, and the warning should not repeat
       if (!this._errors.some((e) => e.message === message)) {
-        this._errors.push(new SchemaError(message, { isWarning: true }));
+        this._errors.push(new SchemaError(message, { severity: "warning" }));
       }
       return undefined;
     }
