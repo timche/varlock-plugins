@@ -2,7 +2,7 @@
 
 ## Setup
 
-Needs [Bun](https://bun.sh) and Node.js 22 or later; the tests run the varlock CLI under Node.
+`mise.toml` pins Bun and Node; `mise install` sets them up. The tests run the varlock CLI under Node.
 
 ```sh
 bun install

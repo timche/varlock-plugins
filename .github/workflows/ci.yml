@@ -13,13 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version-file: package.json
-      # varlock runs under Node in the tests
-      - uses: actions/setup-node@v7
-        with:
-          node-version: 24
+      - uses: jdx/mise-action@v5
       - run: bun install --frozen-lockfile
       - run: bun run check
       - run: bun run build
