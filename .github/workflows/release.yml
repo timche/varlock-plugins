@@ -21,7 +21,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - uses: changesets/action@v2
         with:
-          version-script: pnpm changeset version
+          version-script: pnpm version-packages
           publish-script: pnpm release
           pr-title: Release packages
           commit-message: Release packages
