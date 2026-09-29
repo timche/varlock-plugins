@@ -1,4 +1,4 @@
-import { chmodSync, mkdtempSync, writeFileSync } from 'node:fs';
+import { chmodSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 
@@ -40,5 +40,6 @@ export function createFakeOp(secrets: Record<string, string>, noAuthMessage = DE
   const opPath = path.join(dir, 'op');
   writeFileSync(opPath, `#!/bin/sh\nexec "${process.execPath}" "${scriptPath}" "$@"\n`);
   chmodSync(opPath, 0o755);
+  process.on('exit', () => rmSync(dir, { recursive: true, force: true }));
   return dir;
 }

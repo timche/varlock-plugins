@@ -1,5 +1,5 @@
 import { spawnSync } from 'node:child_process';
-import { mkdtempSync } from 'node:fs';
+import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 
@@ -32,6 +32,7 @@ export function loadSchema(
       ...opts.env,
     },
   });
+  rmSync(home, { recursive: true, force: true });
   const ok = result.status === 0;
   return {
     ok,
