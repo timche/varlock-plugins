@@ -1,24 +1,23 @@
 {
   "name": "varlock-plugins",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
   "type": "module",
   "scripts": {
     "build": "vp run -r build",
     "check": "vp check",
     "fix": "vp check --fix",
     "prepare": "vp config --no-agent",
-    "release": "npm run build && changeset publish",
-    "test": "npm run build && vp test"
+    "release": "pnpm build && changeset publish",
+    "test": "pnpm build && vp test"
   },
   "devDependencies": {
     "@changesets/cli": "^3.0.3",
     "@timche/oxc-configs": "^2.0.0",
+    "@timche/varlock-require-all-or-none": "workspace:*",
+    "@timche/varlock-skip-if-no-auth": "workspace:*",
     "@types/node": "^24",
     "@varlock/1password-plugin": "^2.0.4",
-    "varlock": "1.21.1",
+    "varlock": "1.21.0",
     "vite-plus": "^1.0.0"
   }
 }
