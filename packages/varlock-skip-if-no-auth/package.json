@@ -31,7 +31,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsdown"
+    "build": "vp pack"
   },
   "engines": {
     "node": ">=22"

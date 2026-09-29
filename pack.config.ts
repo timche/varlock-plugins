@@ -1,6 +1,6 @@
-import { defineConfig } from 'tsdown';
+import type { UserConfig } from 'vite-plus';
 
-export default defineConfig({
+export const pluginPack: UserConfig['pack'] = {
   entry: ['src/plugin.ts'],
   format: ['cjs'],
   platform: 'node',
@@ -10,4 +10,4 @@ export default defineConfig({
   // varlock executes plugin.cjs itself rather than through require, so a split chunk that
   // required it back would run the entry again outside the plugin context
   outputOptions: { codeSplitting: false },
-});
+};
