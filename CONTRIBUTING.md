@@ -2,12 +2,12 @@
 
 ## Setup
 
-`mise.toml` pins Bun and Node; `mise install` sets them up. The tests run the varlock CLI under Node.
+`mise.toml` pins Bun and Node; `mise install` sets them up. The tests run on Vitest and start the varlock CLI with Node.
 
 ```sh
 bun install
 bun run check     # format, lint and type checks through Vite+; `bun run fix` applies fixes
-bun run test      # builds every package, then runs bun test
+bun run test      # builds every package, then runs vp test
 ```
 
 ## Layout

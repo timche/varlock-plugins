@@ -1,9 +1,9 @@
-import { describe, expect, test } from "bun:test";
 import path from "node:path";
+import { describe, expect, test } from "vite-plus/test";
 import { createFakeOp, VALID_TOKEN } from "../../../test/fake-op";
 import { loadSchema } from "../../../test/varlock";
 
-const fixture = (name: string) => path.join(import.meta.dir, "fixtures", name);
+const fixture = (name: string) => path.join(import.meta.dirname, "fixtures", name);
 const loadGroups = (env: Record<string, string>) => loadSchema(fixture("groups"), { env });
 
 const CLIENT = { CLIENT_ID: "client-id", CLIENT_SECRET: "client-secret", TENANT_ID: "tenant-id" };
