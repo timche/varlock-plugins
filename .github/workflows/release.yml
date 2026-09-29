@@ -19,11 +19,11 @@ jobs:
       - uses: actions/checkout@v7
       # trusted publishing needs npm 11.5.1 or later, which Node 24 ships
       - uses: jdx/mise-action@v5
-      - run: bun install --frozen-lockfile
+      - run: npm ci
       - uses: changesets/action@v2
         with:
-          version: bunx changeset version
-          publish: bun run release
+          version: npx changeset version
+          publish: npm run release
           title: Release packages
           commit: Release packages
         env:
