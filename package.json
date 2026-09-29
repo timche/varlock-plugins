@@ -8,9 +8,11 @@
   "scripts": {
     "build": "bun run --filter '@timche/*' build",
     "typecheck": "tsc -p .",
-    "test": "bun run build && bun test"
+    "test": "bun run build && bun test",
+    "release": "bun run build && changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "^3.0.3",
     "@timche/varlock-require-all-or-none": "workspace:*",
     "@timche/varlock-skip-if-no-auth": "workspace:*",
     "@types/bun": "^1.4.2",
