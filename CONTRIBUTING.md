@@ -2,12 +2,12 @@
 
 ## Setup
 
-`mise.toml` pins Bun and Node; `mise install` sets them up. The tests run on Vitest and start the varlock CLI with Node.
+`mise.toml` pins Node; `mise install` sets it up, with npm. The tests run on Vitest and start the varlock CLI with Node.
 
 ```sh
-bun install
-bun run check     # format, lint and type checks through Vite+; `bun run fix` applies fixes
-bun run test      # builds every package, then runs vp test
+npm install
+npm run check     # format, lint and type checks through Vite+; `npm run fix` applies fixes
+npm test          # builds every package, then runs vp test
 ```
 
 ## Layout
@@ -18,12 +18,12 @@ One workspace package per plugin, in `packages/<name>`, published as `@timche/<n
 - `vite.config.ts` builds it with `vp pack`, using the shared options in `pack.config.ts`, into one self-contained `dist/plugin.cjs`. Varlock loads that file directly and installs nothing for it, so any dependency must be bundled; `varlock` itself stays external.
 - `test/` loads fixture schemas through the built plugin with the real varlock CLI (see `test/varlock.ts`). Anything that talks to a secret provider uses a stub on `PATH` (see `test/fake-op.ts`), never a real account.
 
-To add a plugin, copy an existing package, rename it, and add it to the root `devDependencies` as `"@timche/<name>": "workspace:*"` so fixtures can load it by name.
+To add a plugin, copy an existing package and rename it. npm links every workspace package into the root `node_modules`, so fixtures can load it by name.
 
 ## Changes
 
-Run `bun run check` and `bun run test` before opening a pull request; CI runs the same on every push and pull request.
+Run `npm run check` and `npm test` before opening a pull request; CI runs the same on every push and pull request.
 
 A pull request that changes what a package publishes also needs a changeset, see [RELEASING.md](RELEASING.md).
 
-`bun install` enables a pre-commit hook (`.vite-hooks/pre-commit`) that runs `vp check --fix` on the staged files, so a commit is formatted and fails on lint or type errors.
+`npm install` enables a pre-commit hook (`.vite-hooks/pre-commit`) that runs `vp check --fix` on the staged files, so a commit is formatted and fails on lint or type errors.
