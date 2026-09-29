@@ -5,10 +5,19 @@
     "": {
       "name": "varlock-plugins",
       "devDependencies": {
+        "@timche/varlock-skip-if-no-auth": "workspace:*",
         "@types/bun": "^1.4.2",
+        "@varlock/1password-plugin": "^2.0.4",
         "tsdown": "^0.23.0",
         "typescript": "^7.0.2",
         "varlock": "1.21.1",
+      },
+    },
+    "packages/varlock-skip-if-no-auth": {
+      "name": "@timche/varlock-skip-if-no-auth",
+      "version": "0.1.0",
+      "peerDependencies": {
+        "varlock": "^1.21.0",
       },
     },
   },
@@ -48,6 +57,8 @@
     "@rolldown/binding-win32-x64-msvc": ["@rolldown/binding-win32-x64-msvc@1.2.11", "", { "os": "win32", "cpu": "x64" }, "sha512-/PzKqzAJ03i19oy2ItPvyvaVjOjBCNnfaJs8yvUdGBKmiESgnrJSQ2awd81QzFbbnAmu7YO9ZnJrDCb9VSJPRA=="],
 
     "@rolldown/pluginutils": ["@rolldown/pluginutils@1.0.1", "", {}, "sha512-2j9bGt5Jh8hj+vPtgzPtl72j0yRxHAyumoo6TNfAjsLB04UtpSvPbPcDcBMxz7n+9CYB0c1GxQFxYRg2jimqGw=="],
+
+    "@timche/varlock-skip-if-no-auth": ["@timche/varlock-skip-if-no-auth@workspace:packages/varlock-skip-if-no-auth"],
 
     "@types/bun": ["@types/bun@1.4.2", "", { "dependencies": { "bun-types": "1.4.2" } }, "sha512-GimotNn7+ZV0uVArItBbriZsR1oNf0+WTzPkdcFrzShI7k2norL0uzEaJT8T33dWr7O/c9ZDuAFQrctKCi72oQ=="],
 
@@ -92,6 +103,8 @@
     "@typescript/typescript-win32-arm64": ["@typescript/typescript-win32-arm64@7.0.2", "", { "os": "win32", "cpu": "arm64" }, "sha512-Gyl1Vy6OsWesLzmq+EP0Fb7b4Nid5232AvcA2SFcdYreldpNtYFFofPjnt62y9hQy7VTaZp65ICJjuAQRaVcIQ=="],
 
     "@typescript/typescript-win32-x64": ["@typescript/typescript-win32-x64@7.0.2", "", { "os": "win32", "cpu": "x64" }, "sha512-0BQ3HkAHHlKLSp1qRvf3SUhGpGsDuhB/jgFw75guyqbxJqEaS0Cw/VFO8i2nHglJUzQCRtMMR/IBAKE3ETMC4g=="],
+
+    "@varlock/1password-plugin": ["@varlock/1password-plugin@2.0.4", "", { "peerDependencies": { "varlock": "^1.17.1" } }, "sha512-/+oM5v4NnN6KBxeJAAVCZt9UvHgLq1LxvLEgTM/CnuCjPBXQtvFCaB1qoYU/FgabebsIsHonjLV9HAorKQYLgA=="],
 
     "@varlock/native-helper-darwin": ["@varlock/native-helper-darwin@1.21.1", "", { "os": "darwin" }, "sha512-hh7lB6cO/qEVJTgPY5ebVicwnbM7ROkIWjOkZ+k6PYWaoyj+UrUTymF5nHkqzg0TaZ+EA5z/eboFoZhrbsOHGw=="],
 

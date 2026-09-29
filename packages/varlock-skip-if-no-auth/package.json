@@ -1,0 +1,45 @@
+{
+  "name": "@timche/varlock-skip-if-no-auth",
+  "version": "0.1.0",
+  "description": "Varlock plugin adding skipIfNoAuth(), which resolves a secret to undefined when its provider has no credentials instead of failing the load",
+  "keywords": [
+    "varlock",
+    "varlock-plugin",
+    "plugin",
+    "1password",
+    "optional",
+    "secrets",
+    "auth",
+    "env",
+    "dotenv",
+    "environment variables"
+  ],
+  "homepage": "https://github.com/timche/varlock-plugins/tree/main/packages/varlock-skip-if-no-auth#readme",
+  "bugs": "https://github.com/timche/varlock-plugins/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timche/varlock-plugins.git",
+    "directory": "packages/varlock-skip-if-no-auth"
+  },
+  "license": "MIT",
+  "author": "Tim Cheung",
+  "type": "module",
+  "exports": {
+    "./plugin": "./dist/plugin.cjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "peerDependencies": {
+    "varlock": "^1.21.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
